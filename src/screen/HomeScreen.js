@@ -1,27 +1,63 @@
-import React from 'react'
-import {View, Text, TouchableOpacity} from 'react-native'
-import GLOBAL from '../assets/styles/global'
-import BottomNavigation from '../components/bottom-navigation/BottomNavigation'
-import { useRoute } from '@react-navigation/native'
-import Heart from '../assets/icons/heart.svg'
-import HeartIcon from './HeartIcon'
+import React, { useState } from 'react'
+import {View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity} from 'react-native'
+import global from '../assets/styles/global'
+import { colors } from '../assets/styles/colors'
+import ToggleMenu from '../components/ToggleMenu'
+import CartMenu from '../components/CartMenu'
+import Banner from '../components/Banner'
+import ProductList from '../components/ProductList'
+import Spacer from '../components/Spacer'
+import { windowHeight, windowWidth } from '../assets/styles/size'
 
-const Home = ({navigation}) => {
-  const {name} = useRoute()
+const HomeScreen = ({navigation}) => {
+
+  const [cart, setCart] = useState([])
+
+  function addProduct(item) {
+    setCart(data => [...data, item])
+  }
+
+  function resetCart() {
+    setCart([])
+  }
 
   return (
-    <View style={GLOBAL.LAYOUT.container}>
-      <Text style={GLOBAL.TEXT.title}>Home Screen</Text>
-      <Text style={GLOBAL.TEXT.text}>Home Screen</Text>
-      <Heart color={'blue'} strokeColor={'white'} width={120} height={40} />
-      <HeartIcon fillColor={'white'} strokeColor={'blue'}/>
-      {/* <BottomNavigation routeName={name}/> */}
-      <TouchableOpacity 
-        onPress={() => navigation.navigate('Wishlist')}>
-        <Text>Notification</Text>
-      </TouchableOpacity>
-    </View>
+    <SafeAreaView style={global.layout.container}>
+      <View style={style.background}/>
+      <ScrollView>
+        <View style={global.layout.section}>
+          <View style={[global.layout.rowJustifyBetween, {marginBottom: 20}]}>
+            <ToggleMenu/>
+            <CartMenu itemCount={cart.length} resetCart={() => resetCart()}/>
+          </View>
+          <Text style={global.text.title}>Nike App Store</Text>
+        </View>
+
+        <Banner/>
+
+        <Spacer/>
+
+        <View style={global.layout.section}>
+          <Text style={global.text.title}>Our Products</Text>
+        </View>
+
+        <ProductList addProduct={(item) => addProduct(item)}/>
+
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
-export default Home
+const style = StyleSheet.create({
+  background: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    borderTopRightRadius: windowWidth / 1.5,
+    backgroundColor: colors.GreyLighten1,
+    minHeight: windowHeight,
+    width: windowWidth
+  },
+})
+
+export default HomeScreen

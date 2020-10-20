@@ -1,12 +1,18 @@
 import React from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, SafeAreaView} from 'react-native'
+import global from '../assets/styles/global'
+import { useRoute } from '@react-navigation/native'
 
-const Profile = ({navigation}) =>{
+const ProfileScreen = ({navigation}) => {
+  const {name} = useRoute()
+
   return (
-    <View>
-      <Text>Profile</Text>
-    </View>
+    <SafeAreaView style={[global.layout.container, {alignItems: 'center'}]}>
+      <View style={global.layout.section}>
+        <Text style={global.text.title}>ProfileScreen Screen</Text>
+      </View>
+    </SafeAreaView>
   )
 }
 
-export default Profile
+export default ProfileScreen

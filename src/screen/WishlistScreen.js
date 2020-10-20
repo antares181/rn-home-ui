@@ -1,12 +1,18 @@
 import React from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, SafeAreaView} from 'react-native'
+import global from '../assets/styles/global'
+import { useRoute } from '@react-navigation/native'
 
-const Wishlist = ({navigation}) =>{
+const WishlistScreen = ({navigation}) => {
+  const {name} = useRoute()
+
   return (
-    <View>
-      <Text>Wishlist</Text>
-    </View>
+    <SafeAreaView style={[global.layout.container, {alignItems: 'center'}]}>
+      <View style={global.layout.section}>
+        <Text style={global.text.title}>WishlistScreen Screen</Text>
+      </View>
+    </SafeAreaView>
   )
 }
 
-export default Wishlist
+export default WishlistScreen

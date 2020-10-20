@@ -1,25 +1,34 @@
 import { StyleSheet } from 'react-native';
-import {COLOR} from './colors';
-import { SIZE } from './size';
+import {colors} from './colors';
+import { size } from './size';
 
-const LAYOUT = StyleSheet.create({
+const layout = StyleSheet.create({
   container: {
-    backgroundColor: COLOR.Primary,
-    padding: SIZE.DefaultMargin,
-  }
+    backgroundColor: colors.White,
+    height: '100%'
+  },
+  section: {
+    padding: size.DefaultMargin
+  },
+  rowJustifyBetween: {
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'space-between'
+  },
 });
 
-const TEXT = StyleSheet.create({
+const text = StyleSheet.create({
   title: {
-    color: COLOR.Black,
-    fontSize: SIZE.TextTitle
+    color: colors.Black,
+    fontSize: size.TextTitle,
+    fontWeight: 'bold'
   },
   text: {
-    color: COLOR.Black,
-    fontSize: SIZE.TextDefault
+    color: colors.Black,
+    fontSize: size.TextDefault
   }
 });
 
-const GLOBAL = { LAYOUT, TEXT }
+const global = { layout, text }
 
-export default GLOBAL;
+export default global;
