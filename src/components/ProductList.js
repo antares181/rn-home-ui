@@ -45,6 +45,7 @@ const ProductList = (props) => {
       <Animated.FlatList
         ref={slider}
         horizontal
+        style={{paddingHorizontal: 10}}
         pagingEnabled
         decelerationRate='normal'
         bounces={false}

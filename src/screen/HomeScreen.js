@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity} from 'react-native'
+import {View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity, NativeModules} from 'react-native'
 import global from '../assets/styles/global'
 import { colors } from '../assets/styles/colors'
 import ToggleMenu from '../components/ToggleMenu'
@@ -8,13 +8,17 @@ import Banner from '../components/Banner'
 import ProductList from '../components/ProductList'
 import Spacer from '../components/Spacer'
 import { windowHeight, windowWidth } from '../assets/styles/size'
+import ToastExample from '../ToastExample'
 
 const HomeScreen = ({navigation}) => {
 
   const [cart, setCart] = useState([])
+  const [currentItem, setCurrentItem] = useState({})
 
   function addProduct(item) {
     setCart(data => [...data, item])
+    setCurrentItem(item)
+    ToastExample.show(`${item.title} added to cart`, ToastExample.SHORT)
   }
 
   function resetCart() {
@@ -34,8 +38,6 @@ const HomeScreen = ({navigation}) => {
         </View>
 
         <Banner/>
-
-        <Spacer/>
 
         <View style={global.layout.section}>
           <Text style={global.text.title}>Our Products</Text>
