@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { colors } from '../assets/styles/colors';
 import HeartIcon from './icons/HeartIcon';
 import HomeIcon from './icons/HomeIcon';
 import UserIcon from './icons/UserIcon';
 
-const BottomNavigation = ({ state, descriptors, navigation }) => {
+const BottomNavigation = ({ state, navigation }) => {
   return (
     <View style={style.container}>
       {state.routes.map((route, index) => {
@@ -22,7 +22,7 @@ const BottomNavigation = ({ state, descriptors, navigation }) => {
             navigation.navigate(route.name);
           }
         };
-
+        
         switch (route.name) {
           case 'Home':
             return (

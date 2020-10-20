@@ -9,7 +9,7 @@ const WishlistScreen = ({navigation}) => {
   return (
     <SafeAreaView style={[global.layout.container, {alignItems: 'center'}]}>
       <View style={global.layout.section}>
-        <Text style={global.text.title}>WishlistScreen Screen</Text>
+        <Text style={global.text.title}>Wishlist Screen</Text>
       </View>
     </SafeAreaView>
   )

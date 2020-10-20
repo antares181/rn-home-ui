@@ -5,7 +5,7 @@ import {View, Text} from 'react-native'
 const CartScreen = ({route, navigation}) => {
   return (
     <View>
-      <Text>CartScreen</Text>
+      <Text>Cart Screen</Text>
     </View>
   )
 }

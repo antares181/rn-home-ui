@@ -9,7 +9,7 @@ const ProfileScreen = ({navigation}) => {
   return (
     <SafeAreaView style={[global.layout.container, {alignItems: 'center'}]}>
       <View style={global.layout.section}>
-        <Text style={global.text.title}>ProfileScreen Screen</Text>
+        <Text style={global.text.title}>Profile Screen</Text>
       </View>
     </SafeAreaView>
   )

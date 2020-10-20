@@ -1,6 +1,5 @@
-import { useNavigation, useRoute } from '@react-navigation/native'
 import React from 'react'
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
+import { TouchableOpacity, StyleSheet } from 'react-native'
 import Cart from '../assets/icons/shopping-cart.svg'
 import Badge from './Badge'
 

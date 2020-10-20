@@ -1,4 +1,4 @@
-# [QBIT] React Native Test
+# React Native
 
 Step to run this project
 

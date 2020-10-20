@@ -22,18 +22,12 @@ const ProductList = (props) => {
         />
         <TouchableOpacity
           activeOpacity={0.6}
-          style={{
-            paddingVertical: 10,
-            paddingHorizontal: 10,
-            borderBottomLeftRadius: 10,
-            borderBottomRightRadius: 10,
-            backgroundColor: colors.GreyLighten2,
-          }}
+          style={styles.cardButton}
           onPress={() => props.addProduct(item)}
         >
           <View style={[ styles.flexCenter, {width: imageWidth - 20}]}>
             <PlusIcon/>
-            <Text style={{ marginLeft: 10, color: colors.White, fontSize: size.TextSmall }}>{item.title}</Text>
+            <Text style={styles.buttonContent}>{item.title}</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -87,6 +81,18 @@ const styles = StyleSheet.create({
     height: 200, 
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+  },
+  cardButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    backgroundColor: colors.GreyLighten2,
+  },
+  buttonContent: { 
+    marginLeft: 10, 
+    color: colors.White, 
+    fontSize: size.TextSmall
   },
   flexCenter: {
     alignItems: 'center',
